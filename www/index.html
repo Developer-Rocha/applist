@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>AppList</title>
+
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript" src="js/globalFunctions.js"></script>
+    </head>
+
+    <body>
+
+        <!--**************** HOME PAGE *******************-->
+        <div data-role="page" id="main-page">
+            <div data-role="header">
+                <h1>Menu AppList</h1>
+            </div>
+
+            <div data-role="main" class="ui-content home-page">
+                <div class="ui-grid-solo boxImage">
+                    <img src="css/images/empty-image.png" class="img-home">
+                </div>
+
+                <div class="ui-grid-a">
+                    <div class="ui-block-a">
+                        <button type="button" class="btn btn-plus" onclick="location.href='index.html#addList'">Criar Lista</button>
+                    </div>
+                    <div class="ui-block-b">
+                        <button type="button" onclick="location.href='index.html#my-lists'" class="btn btn-list">Ver Listas</button>
+                    </div>
+                </div>
+            </div>
+
+            <div data-role="footer" class="footer">
+                <h2>Adicionar aqui os menus</h2>
+            </div>
+        </div>
+
+        <!--**************** PAGE TWO - VIEW LIST *******************-->
+        <div data-role="page" id="my-lists">
+            <div data-role="header">
+                <div class="ui-grid-b">
+                    <div class="ui-block-a">
+                        <button type="button" class="btn-home" onclick="location.href='index.html#main-page'">Voltar</button>
+                    </div>
+                    <div class="ui-block-b logo-top">
+                        <h2>AppList</h2>
+                    </div>
+                    <div class="ui-block-c">
+                        <button type="button" class="btn-add-list" onclick="location.href='index.html#addList'">Adicionar Lista</button>
+                    </div>
+                </div>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                
+                <div class="view-lists">
+                    <!--A lista abaixo será um objeto criado pelo PHP em foreach-->
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">NOME LISTA</div>
+                        <div class="ui-block-b"><button type="button">VER</button></div>
+                    </div>   
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a">NOME LISTA</div>
+                        <div class="ui-block-b"><button type="button">VER</button></div>
+                    </div>
+                </div>
+                                
+            </div>
+    
+            <div data-role="footer" class="footer">
+                <h2>Adicionar aqui os menus</h2>
+            </div>
+        </div>
+
+            <!--**************** PAGE THREE - CREATE LIST *******************-->
+        <div data-role="page" id="addList">
+            <div data-role="header">
+                <div class="ui-grid-c">
+                    <div class="ui-block-a">
+                        <button type="button" class="btn-home" onclick="location.href='index.html#main-page'">Voltar</button>
+                    </div>
+                    <div class="ui-block-b">
+                        <button type="button" class="btn-save">Gravar</button>
+                    </div>
+                    <div class="ui-block-c">
+                        <button type="button" class="btn-share">Partilhar</button>
+                    </div>
+                    <div class="ui-block-d">
+                            <button type="button" class="btn-add-list">Adicionar Lista</button>
+                    </div>
+                </div>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                
+                <div class="newList">
+                    <!--A lista abaixo será um objeto criado pelo PHP em foreach-->
+                    <table>
+                        <tr>
+                            <th><input type="text" name="name-list" placeholder="Escolha o nome da lista"></th>
+                        </tr>                      
+                    </table>
+
+                    <ul class="js-received-items"></ul>
+                    
+                    <form action="">
+                        <input type="text" name="item_add" class="js-input">
+                    </form>
+                    <button type="button" onclick="addItem()">+</button>
+                    <button type="button" onclick="deleteItem()">Deletar</button>
+                </div>
+                                
+            </div>
+
+            <div data-role="footer" class="footer">
+                <h2>Adicionar aqui os menus</h2>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+    </body>
+</html>

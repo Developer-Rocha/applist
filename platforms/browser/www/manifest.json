@@ -1,0 +1,11 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "AppList",
+  "short_name": "AppList",
+  "version": "com.phonegap.helloworld",
+  "description": "Um aplicativo simples e prático para organizar e compartilhar a lista de compras para sua família.",
+  "author": "Fabrício Rocha",
+  "icons": [],
+  "start_url": "index.html"
+}
