@@ -129,6 +129,9 @@
     text-align: center;
 }
 
-table{
+.newList table{
     width: 100%;
+}
+.newList .ui-input-text input.name-list{
+    text-align: center;
 }

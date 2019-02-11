@@ -97,10 +97,9 @@
             <div data-role="main" class="ui-content">
                 
                 <div class="newList">
-                    <!--A lista abaixo será um objeto criado pelo PHP em foreach-->
                     <table>
                         <tr>
-                            <th><input type="text" name="name-list" placeholder="Escolha o nome da lista"></th>
+                            <th><input type="text" class="name-list" name="name-list" value="Escolha o nome da lista"></th>
                         </tr>                      
                     </table>
 
@@ -111,6 +110,7 @@
                     </form>
                     <button type="button" onclick="addItem()">+</button>
                     <button type="button" onclick="deleteItem()">Deletar</button>
+                    <button type="button" onclick="sendArray()">Enviar</button>
                 </div>
                                 
             </div>
