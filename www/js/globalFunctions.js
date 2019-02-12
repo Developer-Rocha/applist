@@ -28,18 +28,18 @@ function deleteItem(){
 
 function sendArray(){
     var listReady = [];
+    var nameList = $('#nameList').val();
 
     $('.js-received-items li').each(function(i, elem){
         listReady.push($(elem).text());
     })
-    console.log(listReady);
+    
     var jsonString = JSON.stringify(listReady);
-    console.log(jsonString);
     $.ajax({
 
         type: "POST",
         url:'http://localhost:8080/servidor/inserts.php',
-        data: {data : jsonString},
+        data: {data : jsonString, nameList},
         success: function(){
             alert("OK!!!");
         },
@@ -47,8 +47,6 @@ function sendArray(){
             alert("Erro no envio ajax");
         }
     });
-
-    //window.location.href = 'http://localhost:8080/servidor/inserts.php';
 }
 
     
