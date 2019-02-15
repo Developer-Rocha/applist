@@ -135,3 +135,12 @@
 .newList .ui-input-text input.name-list{
     text-align: center;
 }
+
+.name-list{
+    width: 75%;
+    display: inline-block;
+}
+.btn-see{
+    width: 20%;
+    display: inline-block;
+}

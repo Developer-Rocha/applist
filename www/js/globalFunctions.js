@@ -1,3 +1,5 @@
+document.addEventListener('deviceready', printList);
+
 function addItem(){
     var myArray = $("form").serializeArray();
 
@@ -38,7 +40,8 @@ function sendArray(){
     $.ajax({
 
         type: "POST",
-        url:'http://localhost:8080/servidor/inserts.php',
+        //url:'http://localhost:8080/servidor/inserts.php', //WORK
+        url:'http://localhost/servidor2/inserts.php', //HOME
         data: {data : jsonString, nameList},
         success: function(){
             alert("OK!!!");
@@ -49,7 +52,70 @@ function sendArray(){
     });
 }
 
-    
-    
+function printList(){
+    $.ajax({
+        url:'http://localhost/servidor2/findList.php',
+        dataType:'json',
+        success:function(r){
+            var lista = "";
+            var i;
+            
+            var total = r.length;
+            
+            for(i = 0; i < total; i++){
+                var y = i - 1;
+               
+                if(i == 0){
+                    lista += "<div class='name-list'><p>" + r[i].lista + "</p></div>";
+                    lista += "<div class='btn-see'><button type='button' onclick='listSelect(\"" + r[i].lista + "\")'>VER</button></div><br>";
+
+                    $('#view-lists').html(lista);
+                }
+                else if(r[i].lista !== r[y].lista){
+                    lista += "<div class='name-list'><p>" + r[i].lista + "</p></div>";
+                    lista += "<div class='btn-see'><button type='button' onclick='listSelect(\"" + r[i].lista + "\")'>VER</button></div><br>";
+
+                    $('#view-lists').html(lista);
+                }
+                
+            }
+        },
+        error:function(e){
+            console.log('Erro no pedido ajax: ' + e.message);
+            console.log(e);
+        }
+
+    })
+}
+
+
+function listSelect(n){
+    var selectList = n;
+    $.ajax({
+        url:'http://localhost/servidor2/findList.php',
+        dataType:'json',
+        success:function(r){
+            var lista = "";
+            var i;
+            var total = r.length;
+            
+            for(i = 0; i < total; i++){
+                
+                if(r[i].lista == selectList){
+                    //lista += r[i].produto;
+                    lista += $('.js-allProd').append("<li>" + r[i].produto + "</li>");
+                }
+                
+            }
+            //console.log(lista);
+            window.location.href='index.html#seeList';
+        },
+        error:function(e){
+            console.log('Erro no pedido ajax: ' + e.message);
+            console.log(e);
+        }
+
+    })
+}
 
     

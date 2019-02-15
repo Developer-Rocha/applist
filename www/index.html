@@ -55,19 +55,10 @@
             </div>
 
             <div data-role="main" class="ui-content">
-                
-                <div class="view-lists">
-                    <!--A lista abaixo será um objeto criado pelo PHP em foreach-->
-                    <div class="ui-grid-a">
-                        <div class="ui-block-a">NOME LISTA</div>
-                        <div class="ui-block-b"><button type="button">VER</button></div>
-                    </div>   
-                    <div class="ui-grid-a">
-                        <div class="ui-block-a">NOME LISTA</div>
-                        <div class="ui-block-b"><button type="button">VER</button></div>
-                    </div>
-                </div>
-                                
+                <!--RECEBE LISTA VIA AJAX-->
+                <button type="button" onclick="printList()">QUERY</button>
+                <div id="view-lists"></div>
+
             </div>
     
             <div data-role="footer" class="footer">
@@ -104,6 +95,51 @@
                     </table>
 
                     <ul class="js-received-items"></ul>
+                    
+                    <form action="">
+                        <input type="text" name="item_add" class="js-input">
+                    </form>
+                    <button type="button" onclick="addItem()">+</button>
+                    <button type="button" onclick="deleteItem()">Deletar</button>
+                    <button type="button" onclick="sendArray()">Enviar</button>
+                </div>
+                                
+            </div>
+
+            <div data-role="footer" class="footer">
+                <h2>Adicionar aqui os menus</h2>
+            </div>
+        </div>
+
+        <!--**************** PAGE FOURTH - SEE LIST *******************-->
+        <div data-role="page" id="seeList">
+            <div data-role="header">
+                <div class="ui-grid-c">
+                    <div class="ui-block-a">
+                        <button type="button" class="btn-home" onclick="location.href='index.html#main-page'">Voltar</button>
+                    </div>
+                    <div class="ui-block-b">
+                        <button type="button" class="btn-save">Gravar</button>
+                    </div>
+                    <div class="ui-block-c">
+                        <button type="button" class="btn-share">Partilhar</button>
+                    </div>
+                    <div class="ui-block-d">
+                            <button type="button" class="btn-add-list">Adicionar Lista</button>
+                    </div>
+                </div>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                
+                <div class="newList">
+                    <table>
+                        <tr>
+                            <th><input type="text" class="name-list" id="nameList" name="name-list" value="Escolha o nome da lista"></th>
+                        </tr>                      
+                    </table>
+
+                    <ul class="js-allProd"></ul>
                     
                     <form action="">
                         <input type="text" name="item_add" class="js-input">
