@@ -56,7 +56,7 @@
 
             <div data-role="main" class="ui-content">
                 <!--RECEBE LISTA VIA AJAX-->
-                <button type="button" onclick="printList()">QUERY</button>
+                <button type="button" onclick="printList()">Atualizar</button>
                 <div id="view-lists"></div>
 
             </div>
@@ -96,10 +96,10 @@
 
                     <ul class="js-received-items"></ul>
                     
-                    <form action="">
+                    <form id="form-createList">
                         <input type="text" name="item_add" class="js-input">
                     </form>
-                    <button type="button" onclick="addItem()">+</button>
+                    <button class="js-addItem" type="button" onclick="addItem()">+</button>
                     <button type="button" onclick="deleteItem()">Deletar</button>
                     <button type="button" onclick="sendArray()">Enviar</button>
                 </div>
@@ -116,7 +116,7 @@
             <div data-role="header">
                 <div class="ui-grid-c">
                     <div class="ui-block-a">
-                        <button type="button" class="btn-home" onclick="location.href='index.html#main-page'">Voltar</button>
+                        <button type="button" class="btn-home" onclick="location.href='index.html#my-lists'">Voltar</button>
                     </div>
                     <div class="ui-block-b">
                         <button type="button" class="btn-save">Gravar</button>
@@ -141,10 +141,10 @@
 
                     <ul class="js-allProd"></ul>
                     
-                    <form action="">
+                    <form id="form-seeList">
                         <input type="text" name="item_add" class="js-input">
                     </form>
-                    <button type="button" onclick="addItem()">+</button>
+                    <button class="js-addItem" type="button" onclick="addItem()">+</button>
                     <button type="button" onclick="deleteItem()">Deletar</button>
                     <button type="button" onclick="sendArray()">Enviar</button>
                 </div>

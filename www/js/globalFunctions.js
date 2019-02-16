@@ -1,7 +1,7 @@
 document.addEventListener('deviceready', printList);
 
 function addItem(){
-    var myArray = $("form").serializeArray();
+    var myArray = $("#form-createList").serializeArray();
 
     if($('.js-input').val() !== null && $('.js-input').val() !== ''){
         $.each(myArray, function(i,data){
@@ -11,7 +11,6 @@ function addItem(){
     
         createArray();
     }
-    
 }
 
 function createArray(){
@@ -40,11 +39,14 @@ function sendArray(){
     $.ajax({
 
         type: "POST",
-        //url:'http://localhost:8080/servidor/inserts.php', //WORK
-        url:'http://localhost/servidor2/inserts.php', //HOME
+        url:'http://localhost:8080/servidor/inserts.php', //WORK
+        //url:'http://localhost/servidor2/inserts.php', //HOME
         data: {data : jsonString, nameList},
         success: function(){
             alert("OK!!!");
+
+            $('.js-received-items li').remove();
+            window.location.href = "index.html#my-lists";
         },
         error: function(){
             alert("Erro no envio ajax");
@@ -54,7 +56,8 @@ function sendArray(){
 
 function printList(){
     $.ajax({
-        url:'http://localhost/servidor2/findList.php',
+        url:'http://localhost:8080/servidor/findList.php', //WORK
+        //url:'http://localhost/servidor2/findList.php', //HOME
         dataType:'json',
         success:function(r){
             var lista = "";
@@ -67,13 +70,13 @@ function printList(){
                
                 if(i == 0){
                     lista += "<div class='name-list'><p>" + r[i].lista + "</p></div>";
-                    lista += "<div class='btn-see'><button type='button' onclick='listSelect(\"" + r[i].lista + "\")'>VER</button></div><br>";
+                    lista += "<div class='btn-see'><button type='button' onclick='listSelected(\"" + r[i].lista + "\")'>VER</button></div><br>";
 
                     $('#view-lists').html(lista);
                 }
                 else if(r[i].lista !== r[y].lista){
                     lista += "<div class='name-list'><p>" + r[i].lista + "</p></div>";
-                    lista += "<div class='btn-see'><button type='button' onclick='listSelect(\"" + r[i].lista + "\")'>VER</button></div><br>";
+                    lista += "<div class='btn-see'><button type='button' onclick='listSelected(\"" + r[i].lista + "\")'>VER</button></div><br>";
 
                     $('#view-lists').html(lista);
                 }
@@ -89,15 +92,18 @@ function printList(){
 }
 
 
-function listSelect(n){
+function listSelected(n){
     var selectList = n;
     $.ajax({
-        url:'http://localhost/servidor2/findList.php',
+        url:'http://localhost:8080/servidor/findList.php', //WORK
+        //url:'http://localhost/servidor2/findList.php', //HOME
         dataType:'json',
         success:function(r){
             var lista = "";
             var i;
             var total = r.length;
+            
+            $('.js-allProd li').remove();
             
             for(i = 0; i < total; i++){
                 
