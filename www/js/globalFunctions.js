@@ -39,8 +39,9 @@ function sendArray(){
     $.ajax({
 
         type: "POST",
-        url:'http://localhost:8080/servidor/inserts.php', //WORK
+        //url:'http://localhost:8080/servidor/inserts.php', //WORK
         //url:'http://localhost/servidor2/inserts.php', //HOME
+        url:'http://uxdeveloper.online/servidor2/inserts.php', //ONLINE
         data: {data : jsonString, nameList},
         success: function(){
             alert("OK!!!");
@@ -56,8 +57,9 @@ function sendArray(){
 
 function printList(){
     $.ajax({
-        url:'http://localhost:8080/servidor/findList.php', //WORK
+        //url:'http://localhost:8080/servidor/findList.php', //WORK
         //url:'http://localhost/servidor2/findList.php', //HOME
+        url:'http://uxdeveloper.online/servidor2/findList.php', //ONLINE
         dataType:'json',
         success:function(r){
             var lista = "";
@@ -95,8 +97,9 @@ function printList(){
 function listSelected(n){
     var selectList = n;
     $.ajax({
-        url:'http://localhost:8080/servidor/findList.php', //WORK
+        //url:'http://localhost:8080/servidor/findList.php', //WORK
         //url:'http://localhost/servidor2/findList.php', //HOME
+        url:'http://uxdeveloper.online/servidor2/findList.php', //ONLINE
         dataType:'json',
         success:function(r){
             var lista = "";
