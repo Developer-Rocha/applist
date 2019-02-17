@@ -1,3 +1,11 @@
+.align-center{
+    text-align: center;
+}
+
+.align-center input{
+    text-align: center;
+}
+
 .boxImage{
     position: relative;
     width: 100%;

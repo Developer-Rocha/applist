@@ -19,15 +19,13 @@ function createArray(){
     $('.js-received-items li').each(function(i, elem){
         listReady.push($(elem).text());
     })
-
-    //console.log(listReady);
 }
 
 function deleteItem(){
     $('.js-received-items li:last').remove();
 }
 
-function sendArray(){
+function criaLista(){
     var listReady = [];
     var nameList = $('#nameList').val();
 
@@ -47,6 +45,7 @@ function sendArray(){
             alert("OK!!!");
 
             $('.js-received-items li').remove();
+            printList();
             window.location.href = "index.html#my-lists";
         },
         error: function(){
@@ -57,32 +56,20 @@ function sendArray(){
 
 function printList(){
     $.ajax({
-        //url:'http://localhost:8080/servidor/findList.php', //WORK
-        //url:'http://localhost/servidor2/findList.php', //HOME
-        url:'http://uxdeveloper.online/servidor2/findList.php', //ONLINE
+        //url:'http://localhost:8080/servidor/listas.php', //WORK
+        //url:'http://localhost/servidor2/listas.php', //HOME
+        url:'http://uxdeveloper.online/servidor2/listas.php', //ONLINE
         dataType:'json',
         success:function(r){
-            var lista = "";
+            var myArray = "";
             var i;
-            
             var total = r.length;
             
             for(i = 0; i < total; i++){
-                var y = i - 1;
-               
-                if(i == 0){
-                    lista += "<div class='name-list'><p>" + r[i].lista + "</p></div>";
-                    lista += "<div class='btn-see'><button type='button' onclick='listSelected(\"" + r[i].lista + "\")'>VER</button></div><br>";
+                myArray += "<div class='name-list'><p>" + r[i].lista + "</p></div>";
+                myArray += "<div class='btn-see'><button type='button' onclick='listSelected(\"" + r[i].ID_lista + "\")'>VER</button></div><br>";
 
-                    $('#view-lists').html(lista);
-                }
-                else if(r[i].lista !== r[y].lista){
-                    lista += "<div class='name-list'><p>" + r[i].lista + "</p></div>";
-                    lista += "<div class='btn-see'><button type='button' onclick='listSelected(\"" + r[i].lista + "\")'>VER</button></div><br>";
-
-                    $('#view-lists').html(lista);
-                }
-                
+                $('#view-lists').html(myArray);
             }
         },
         error:function(e){
@@ -95,28 +82,26 @@ function printList(){
 
 
 function listSelected(n){
-    var selectList = n;
+    var selectedList = n;
     $.ajax({
         //url:'http://localhost:8080/servidor/findList.php', //WORK
         //url:'http://localhost/servidor2/findList.php', //HOME
         url:'http://uxdeveloper.online/servidor2/findList.php', //ONLINE
-        dataType:'json',
+        type:'POST',
+        data: {selectedList},
         success:function(r){
             var lista = "";
             var i;
             var total = r.length;
             
             $('.js-allProd li').remove();
+
+            //Print do nome da lista selecionada.
+            $('#title-List').val(r[0].lista);
             
             for(i = 0; i < total; i++){
-                
-                if(r[i].lista == selectList){
-                    //lista += r[i].produto;
-                    lista += $('.js-allProd').append("<li>" + r[i].produto + "</li>");
-                }
-                
+                lista += $('.js-allProd').append("<li>" + r[i].produto + "</li>");
             }
-            //console.log(lista);
             window.location.href='index.html#seeList';
         },
         error:function(e){
