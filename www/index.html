@@ -20,7 +20,7 @@
 
             <div data-role="main" class="ui-content home-page">
                 <div class="ui-grid-solo boxImage">
-                    <img src="css/images/empty-image.png" class="img-home">
+                    <img src="css/images/icon-home.png" class="img-home">
                 </div>
 
                 <div class="ui-grid-a">
@@ -69,18 +69,15 @@
             <!--**************** PAGE THREE - CREATE LIST *******************-->
         <div data-role="page" id="addList">
             <div data-role="header">
-                <div class="ui-grid-c">
+                <div class="ui-grid-b">
                     <div class="ui-block-a">
                         <button type="button" class="btn-home" onclick="location.href='index.html#main-page'">Voltar</button>
                     </div>
                     <div class="ui-block-b">
-                        <button type="button" class="btn-save">Gravar</button>
+                        <button type="button" class="btn-save" onclick="criaLista()">Gravar</button>
                     </div>
                     <div class="ui-block-c">
                         <button type="button" class="btn-share">Partilhar</button>
-                    </div>
-                    <div class="ui-block-d">
-                            <button type="button" class="btn-add-list">Adicionar Lista</button>
                     </div>
                 </div>
             </div>
@@ -88,20 +85,17 @@
             <div data-role="main" class="ui-content">
                 
                 <div class="newList">
-                    <table>
-                        <tr>
-                            <th><input type="text" class="name-list" id="nameList" name="name-list" value="Escolha o nome da lista"></th>
-                        </tr>                      
-                    </table>
+                    <div class="input-lg">
+                        <input type="text" class="name-list" id="nameList" name="name-list" value="Escolha o nome da lista">
+                    </div>
 
-                    <ul class="js-received-items"></ul>
+                    <ul class="js-received-items ul-white"></ul>
                     
                     <form id="form-createList">
                         <input type="text" name="item_add" class="js-input">
                     </form>
                     <button class="js-addItem" type="button" onclick="addItem()">+</button>
                     <button type="button" onclick="deleteItem()">Deletar</button>
-                    <button type="button" onclick="criaLista()">Enviar</button>
                 </div>
                                 
             </div>
