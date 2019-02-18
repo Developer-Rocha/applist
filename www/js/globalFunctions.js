@@ -66,8 +66,8 @@ function printList(){
             var total = r.length;
             
             for(i = 0; i < total; i++){
-                myArray += "<div class='name-list'><p>" + r[i].lista + "</p></div>";
-                myArray += "<div class='btn-see'><button type='button' onclick='listSelected(\"" + r[i].ID_lista + "\")'>VER</button></div><br>";
+                myArray += "<div class='name-list'><button type='button' class='btn-lista' onclick='listSelected(\"" + r[i].ID_lista + "\")'>" + r[i].lista + "</p></div>";
+                myArray += "<div class='btn-see'><button type='button' onclick='deletaLista(\"" + r[i].ID_lista + "\")'>Deletar</button></div><br>";
 
                 $('#view-lists').html(myArray);
             }
@@ -112,4 +112,21 @@ function listSelected(n){
     })
 }
 
-    
+function deletaLista(n){
+    var id_lista = n;
+    $.ajax({
+        //url:'http://localhost:8080/servidor/deletarLista.php', //WORK
+        //url:'http://localhost/servidor2/deletarLista.php', //HOME
+        url:'http://uxdeveloper.online/servidor2/deletarLista.php', //ONLINE
+        type:'POST',
+        data:{id_lista},
+        success:function(r){
+            printList();
+            console.log('deletado com sucesso');
+        },
+        error:function(e){
+            console.log('erro no pedido ajax');
+        }
+    })
+} 
+

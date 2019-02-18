@@ -151,4 +151,29 @@
 .btn-see{
     width: 20%;
     display: inline-block;
+    text-align: right;
+}
+
+.btn-see button{
+    font-size: 0;
+    background-image: url('images/garbage.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 35px;
+    width: 35px;
+    background-color: transparent;
+    border-color: transparent;
+    border-image: initial;
+    border-style: unset;
+    color: transparent;
+}
+
+.btn-lista{
+    width: 100%;
+    background-color: transparent;
+    border-color: transparent;
+    border-image: initial;
+    border-style: unset;
+    text-align: left;
 }
