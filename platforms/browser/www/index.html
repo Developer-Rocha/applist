@@ -86,16 +86,19 @@
                 
                 <div class="newList">
                     <div class="input-lg">
-                        <input type="text" class="name-list" id="nameList" name="name-list" value="Escolha o nome da lista">
+                        <input type="text" class="name-list" id="nameList" name="name-list" value="Escolha o nome da lista" required>
                     </div>
 
                     <ul class="js-received-items ul-white"></ul>
                     
                     <form id="form-createList">
-                        <input type="text" name="item_add" class="js-input">
+                        <input type="text" name="item_add" class="js-input increment-Input" required>
                     </form>
-                    <button class="js-addItem" type="button" onclick="addItem()">+</button>
+                    <button class="btn-input js-addItem" type="button" onclick="addItem()">+</button>
                     <button type="button" onclick="deleteItem()">Deletar</button>
+                    <div class="wrap-error">
+                        <span class="message-error">Lista sem itens.</span>
+                    </div>
                 </div>
                                 
             </div>

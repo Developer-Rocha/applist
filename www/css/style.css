@@ -231,3 +231,17 @@
 ul li{
     list-style: none;
 }
+
+.wrap-error{
+    padding: 20px;
+    background-color: #ffffa5;
+    text-align: center;
+    border-radius: 5px;
+    display: none;
+}
+
+.message-error{
+    color: red;
+    font-weight: 600;
+}
+
